@@ -1,4 +1,5 @@
 #!/bin/bash
+# If wine apps wont connect to pipewire install lib32-libpulse and lib32-libpipewire
 
 CONFIG_FILE="pipewire.conf"
 SOURCE_PATH="/usr/share/pipewire/"$CONFIG_FILE
