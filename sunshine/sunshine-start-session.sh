@@ -1,7 +1,12 @@
 #!/bin/bash
 set -e
 
-ssh_args="<user>@192.168.0.115" # Or use alias set in ~/.ssh/config
+if [ -z "$1" ]; then
+  echo "Usage: $0 user@host"
+  exit 1
+fi
+
+ssh_args="$1" # Use the first argument as SSH target
 
 check_ssh(){
   result=1
@@ -23,7 +28,7 @@ start_stream(){
   echo "Starting sunshine server on host..."
   echo "Start moonlight on your client of choice"
   # -f runs ssh in the background
-  ssh -f $ssh_args "~/scripts/sunshine.sh &"
+  ssh -f $ssh_args "~/Projects/linux_scripts/sunshine/sunshine.sh &"
 }
 
 check_ssh
